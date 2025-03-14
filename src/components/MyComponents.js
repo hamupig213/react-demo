@@ -9,17 +9,29 @@ class MyComponent extends React.Component {
         age: 24,
     };
 
-    handleClick = (event) => {
-        console.log("Heello", this.state.name);
-        this.setState({
-            name: "Huy Chu",
-            age: Math.floor(Math.random() * 100 + 1),
-        });
+    // handleClick = (event) => {
+    //     console.log("Heello", this.state.name);
+    //     this.setState({
+    //         name: "Huy Chu",
+    //         age: Math.floor(Math.random() * 100 + 1),
+    //     });
+    // };
+
+    // handleOnMouseOver = (event) => {
+    //     alert("Hello World!");
+    // };
+
+    handleOnSubmit = (event) => {
+        event.preventDefault();
+        console.log("Submit", this.state);
     };
 
-    handleOnMouseOver = (event) => {
-        alert("Hello World!");
-    };
+    handleOnChangeInput = (event) => {
+        this.setState({
+            name: event.target.value,
+        });
+        console.log(event.target.value);
+    }
 
     render() {
         return (
@@ -28,8 +40,12 @@ class MyComponent extends React.Component {
                 My name is {this.state.name} <br />
                 My address is {this.state.add} <br />
                 My age is {this.state.age} <br />
-                {/* <button onMouseOver={this.handleOnMouseOver}>Alert!</button> */}
-                <button onClick={this.handleClick}>Click!</button>
+                <br />
+                <br />
+                <form onSubmit={this.handleOnSubmit}>
+                    <input type="text" onChange={this.handleOnChangeInput}></input>
+                    <button>Submit</button>
+                </form>
             </div>
         );
     }

@@ -21,11 +21,11 @@ class MyComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
                 <h1>First component!!!</h1>
                 <AddUserInfor handleAddUser={this.handleAddUser} />
                 <DisplayInfor listUsers={this.state.listUsers} />
-            </div>
+            </>
         );
     }
 }

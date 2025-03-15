@@ -19,9 +19,17 @@ class MyComponent extends React.Component {
         });
     };
 
+    handlerDeleteUser = (id) => {
+        let listUsersClone = [...this.state.listUsers];
+        listUsersClone = listUsersClone.filter((user) => user.id !== id);
+        this.setState({
+            listUsers: listUsersClone,
+        });
+    };
+
     render() {
         const test = "Cin chào ngay moi";
-        const obj = {name: "John", email: "contact@gmail.com"};
+        const obj = { name: "John", email: "contact@gmail.com" };
 
         return (
             <>
@@ -32,7 +40,10 @@ class MyComponent extends React.Component {
                 <br />
                 <h1>First component!!!</h1>
                 <AddUserInfor handleAddUser={this.handleAddUser} />
-                <DisplayInfor listUsers={this.state.listUsers} />
+                <DisplayInfor
+                    listUsers={this.state.listUsers}
+                    handlerDeleteUser={this.handlerDeleteUser}
+                />
             </>
         );
     }

@@ -12,6 +12,10 @@ class DisplayInfor extends React.Component {
         });
     };
 
+    HandleDeleteUser = (id) => {
+        return this.props.handlerDeleteUser(id);
+    };
+
     render() {
         //destructuring
         const { listUsers } = this.props;
@@ -33,8 +37,19 @@ class DisplayInfor extends React.Component {
                                     key={item.id}
                                     className={item.age > 18 ? "green" : "red"}
                                 >
-                                    <h3>Name: {item.name}</h3>
-                                    <p>Age: {item.age}</p>
+                                    <div>
+                                        <h3>Name: {item.name}</h3>
+                                        <p>Age: {item.age}</p>
+                                    </div>
+                                    <div>
+                                        <button
+                                            onClick={() =>
+                                                this.HandleDeleteUser(item.id)
+                                            }
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
                             );
                         })}

@@ -29,6 +29,8 @@ class AddUserInfor extends React.Component {
         });
     };
 
+
+    // component = template + logic js
     render() {
         return (
             <div>

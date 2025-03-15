@@ -20,8 +20,16 @@ class MyComponent extends React.Component {
     };
 
     render() {
+        const test = "Cin chào ngay moi";
+        const obj = {name: "John", email: "contact@gmail.com"};
+
         return (
             <>
+                {test}
+                <br />
+                {/*obj không thể in trực tiếp => cần convert về string*/}
+                {JSON.stringify(obj)}
+                <br />
                 <h1>First component!!!</h1>
                 <AddUserInfor handleAddUser={this.handleAddUser} />
                 <DisplayInfor listUsers={this.state.listUsers} />

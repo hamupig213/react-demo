@@ -11,7 +11,7 @@ class AddUserInfor extends React.Component {
         event.preventDefault();
         // truyền props từ cha sang con
         this.props.handleAddUser({
-            id: Math.floor((Math.random() * 100) + 1) + "-random",
+            id: Math.floor(Math.random() * 100 + 1) + "-random",
             name: this.state.name,
             age: this.state.age,
         });

@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "./DisplayInfor.scss";
 
 class DisplayInfor extends React.Component {
     state = {
@@ -15,10 +15,12 @@ class DisplayInfor extends React.Component {
         //destructuring
         const { listUsers } = this.props;
         return (
-            <div>
+            <div className="display-infor-container">
                 <div>
-                    <h3 onClick={this.HandleShowHide} >
-                        {this.state.isShowed === true ? "Hide User" : "Show User"}
+                    <h3 onClick={this.HandleShowHide}>
+                        {this.state.isShowed === true
+                            ? "Hide User"
+                            : "Show User"}
                     </h3>
                 </div>
                 {this.state.isShowed && (

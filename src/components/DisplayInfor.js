@@ -3,9 +3,30 @@ import "./DisplayInfor.scss";
 import logo from "./../logo.svg";
 
 class DisplayInfor extends React.Component {
-    state = {
-        isShowed: false,
-    };
+    constructor(props) {
+        console.log("contructor");
+
+        super(props);
+        this.state = {
+            isShowed: false,
+        };
+    }
+    componentDidMount() {
+        console.log("componentDidMount");
+        setTimeout(() => {
+            document.title = "Chu Huy";
+        }, 3000);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("componentDidUpdate", this.props, prevProps);
+        if (this.props.listUsers !== prevProps.listUsers) { 
+            if(this.props.listUsers >= 5){
+                alert("You have 5 users");
+            }
+        }
+    }
+
     HandleShowHide = () => {
         this.setState({
             isShowed: !this.state.isShowed,
@@ -17,6 +38,7 @@ class DisplayInfor extends React.Component {
     };
 
     render() {
+        console.log("render");
         //destructuring
         const { listUsers } = this.props;
         return (

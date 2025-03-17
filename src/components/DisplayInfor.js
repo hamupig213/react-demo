@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DisplayInfor.scss";
-import logo from "./../logo.svg";
 
 // class DisplayInfor extends React.Component {
 
@@ -42,12 +41,23 @@ import logo from "./../logo.svg";
 // }
 
 const DisplayInfor = (props) => {
-    console.log("render");
+    //user state
+    const [isShowHideUser, setShowHideUser] = useState(true);
     //destructuring
     const { listUsers } = props;
+
+    // function
+    const handleShowHideUser = () => {
+        setShowHideUser(!isShowHideUser);
+    };
     return (
         <div className="display-infor-container">
-            {true && (
+            <div>
+                <h3 onClick={() => handleShowHideUser()}>
+                    {isShowHideUser ? "Hide" : "Show"} user
+                </h3>
+            </div>
+            {isShowHideUser && (
                 <>
                     {listUsers.map((item) => {
                         return (
